@@ -38,7 +38,7 @@
 <body class="bg-gray-900 text-gray-100 h-screen w-screen flex flex-col font-sans">
 
   <!-- Верхня панель інструментів (Top Bar) -->
-  <header class="bg-gray-800 border-b border-gray-700 px-4 py-2.5 flex items-center justify-between z-10 shadow-md">
+  <header class="bg-gray-800 border-b border-gray-700 px-3 py-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 z-10 shadow-md">
     <div class="flex items-center space-x-3">
       <div class="flex items-center space-x-2 text-indigo-400 font-bold text-lg">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,47 +51,50 @@
     </div>
 
     <!-- Основні інструменти -->
-    <div class="flex items-center bg-gray-900 p-1 rounded-lg border border-gray-700 space-x-1">
-      <button id="toolDraw" class="tool-btn active flex items-center space-x-1 px-3 py-1.5 rounded text-sm font-medium transition bg-indigo-600 text-white" title="Креслення нових доріг по точках">
+    <div class="flex flex-wrap items-center bg-gray-900 p-1 rounded-lg border border-gray-700 gap-1">
+      <button id="toolDraw" class="tool-btn active flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium transition bg-indigo-600 text-white" title="Креслення нових доріг по точках">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
         <span>Draw</span>
       </button>
 
-      <button id="toolMarking" class="tool-btn flex items-center space-x-1 px-3 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Нанесення розмітки, стрілок та власних з'єднань">
+      <button id="toolMarking" class="tool-btn flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Нанесення розмітки, стрілок та власних з'єднань">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l3 3m0 0l-3 3m3-3H7a5 5 0 00-5 5v1"></path></svg>
         <span>Marking</span>
       </button>
 
-      <button id="toolErase" class="tool-btn flex items-center space-x-1 px-3 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Стирання елементів (Гумка)">
+      <button id="toolErase" class="tool-btn flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Стирання елементів (Гумка)">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
         <span>Erase</span>
       </button>
 
-      <button id="toolEdit" class="tool-btn flex items-center space-x-1 px-3 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Редагування вузлів та доріг">
+      <button id="toolEdit" class="tool-btn flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Редагування вузлів та доріг">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
         <span>Edit</span>
       </button>
 
-      <button id="toolPan" class="tool-btn flex items-center space-x-1 px-3 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Переміщення карти (Панорамування)">
+      <button id="toolPan" class="tool-btn flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Переміщення карти (Панорамування)">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
         <span>Panorama</span>
       </button>
 
-      <button id="toolTram" class="tool-btn flex items-center space-x-1 px-3 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Креслення трамвайних колій">
+      <button id="toolTram" class="tool-btn flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Креслення трамвайних колій">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
         <span>Tram</span>
       </button>
 
-      <button id="toolAIRoute" class="tool-btn flex items-center space-x-1 px-3 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Креслення маршрутів AI-трафіку">
+      <button id="toolAIRoute" class="tool-btn flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Креслення маршрутів AI-трафіку">
         <span class="text-base leading-none">➜</span><span>AI-route</span>
       </button>
-      <button id="toolLights" class="tool-btn flex items-center space-x-1 px-3 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Створення та налаштування світлофорів">
+      <button id="toolStops" class="tool-btn flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Bus stops and tram stops">
+        <span class="text-base leading-none">🚏</span><span>Stops</span>
+      </button>
+      <button id="toolLights" class="tool-btn flex items-center space-x-1 px-2 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition" title="Створення та налаштування світлофорів">
         <span class="text-base leading-none">🚦</span><span>Lights</span>
       </button>
     </div>
 
     <!-- Кнопки швидкої дії -->
-    <div class="flex items-center space-x-2">
+    <div class="flex flex-wrap items-center gap-2">
       <button id="menuBtn" class="bg-gray-700 hover:bg-gray-600 text-gray-100 px-3 py-1.5 rounded text-sm font-medium transition" title="Main menu (your saved projects)">☰ Menu</button>
       <button id="saveBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded text-sm font-medium shadow transition" title="Save project (Ctrl+S)">💾 Save</button>
       <button id="finishBtn" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded text-sm font-medium flex items-center space-x-1 shadow transition opacity-50 cursor-not-allowed" disabled>
@@ -230,11 +233,12 @@
           <!-- Рівень: земля / міст -->
           <div>
             <label class="block text-xs text-gray-400 mb-1">Level for next points: <span class="text-gray-500">(B)</span></label>
-            <div class="grid grid-cols-2 gap-1">
+            <div class="grid grid-cols-3 gap-1">
               <button id="levelGroundBtn" type="button" class="bg-indigo-600 text-white text-xs py-1.5 rounded font-bold">🛣 Ground</button>
               <button id="levelBridgeBtn" type="button" class="bg-gray-700 hover:bg-gray-600 text-xs py-1.5 rounded font-bold">🌉 Bridge</button>
+              <button id="levelTunnelBtn" type="button" class="bg-gray-700 hover:bg-gray-600 text-xs py-1.5 rounded font-bold" title="Tunnel (U)">⛰ Tunnel</button>
             </div>
-            <p class="text-[11px] text-gray-400 mt-1.5 leading-relaxed">Ground point → Bridge point = ramp up (entrance). Bridge → Bridge = deck. Bridge point → Ground point = ramp down (exit).</p>
+            <p class="text-[11px] text-gray-400 mt-1.5 leading-relaxed">Ground → Bridge = ramp up, Bridge → Bridge = deck, Bridge → Ground = ramp down. <b class="text-amber-300">Tunnel (U):</b> Ground → Tunnel = entrance portal, Tunnel → Tunnel = underground (amber dashed outline), Tunnel → Ground = exit portal.</p>
           </div>
 
           <!-- Кількість смуг -->
@@ -307,7 +311,7 @@
               <span>Tram Width:</span>
               <span id="tramWidthVal" class="text-amber-400 font-mono">16 px</span>
             </div>
-            <input type="range" id="tramWidthRange" min="16" max="48" value="16" class="w-full accent-amber-500 bg-gray-700 h-1.5 rounded">
+            <input type="range" id="tramWidthRange" min="8" max="48" value="16" class="w-full accent-amber-500 bg-gray-700 h-1.5 rounded">
           </div>
 
           <!-- Згладжування -->
@@ -319,17 +323,38 @@
         </div>
       </div>
 
+      <div id="stopsPanel" class="space-y-3 hidden">
+        <div class="bg-gray-900/60 p-3 rounded-lg border border-gray-700 space-y-3">
+          <div class="text-xs font-semibold uppercase tracking-wider text-gray-400">Stops</div>
+          <div class="grid grid-cols-3 gap-1">
+            <button id="stopKindBus" type="button" class="bg-green-600 text-white text-xs py-1.5 rounded font-bold">🚌 Bus</button>
+            <button id="stopKindTram" type="button" class="bg-gray-700 hover:bg-gray-600 text-xs py-1.5 rounded font-bold">🚋 Tram</button>
+            <button id="stopKindDel" type="button" class="bg-gray-700 hover:bg-gray-600 text-xs py-1.5 rounded font-bold">🗑 Remove</button>
+          </div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">Click beside a <b>bus route</b> (AI-route tool → "Bus route" checkbox) or a <b>tram route</b> (AI-route tool → "Tram route" checkbox); the stop snaps to it on the side you click. Buses and trams stop there for a few seconds. To delete a stop, press <b>🗑 Remove</b> and click the stop.</p>
+        </div>
+      </div>
+
       <div id="aiRoutePanel" class="space-y-3 hidden">
         <h3 class="text-xs font-semibold uppercase tracking-wider text-cyan-400">AI Routes</h3>
         <div class="bg-gray-900/60 p-3 rounded-lg border border-gray-700 space-y-3">
           <p class="text-[11px] text-gray-300 leading-relaxed">Draw the trajectory along which the AI traffic will move. The line can pass along the road and through intersections.</p>
+          <label class="flex items-center justify-between cursor-pointer rounded-lg border border-red-700/60 bg-red-900/20 px-2.5 py-2">
+            <span class="text-sm text-gray-200">🚌 Bus route <span class="text-[11px] text-red-300/80">(bus lane — only buses drive here)</span></span>
+            <input id="aiRouteBusChk" type="checkbox" class="accent-red-500 w-4 h-4">
+          </label>
+          <label class="flex items-center justify-between cursor-pointer rounded-lg border border-amber-700/60 bg-amber-900/20 px-2.5 py-2">
+            <span class="text-sm text-gray-200">🚋 Tram route <span class="text-[11px] text-amber-300/80">(trams drive along it — draw it on the rails)</span></span>
+            <input id="aiRouteTramChk" type="checkbox" class="accent-amber-500 w-4 h-4">
+          </label>
           <div class="rounded-lg border border-sky-700/60 bg-sky-900/20 p-2.5 space-y-2">
             <div class="text-xs font-semibold uppercase tracking-wider text-sky-300">🌉 Bridges <span class="text-sky-500 normal-case">(B)</span></div>
-            <div class="grid grid-cols-2 gap-1">
+            <div class="grid grid-cols-3 gap-1">
               <button id="levelGroundBtn2" type="button" class="bg-indigo-600 text-white text-xs py-1.5 rounded font-bold">🛣 Ground</button>
               <button id="levelBridgeBtn2" type="button" class="bg-gray-700 hover:bg-gray-600 text-xs py-1.5 rounded font-bold">🌉 Bridge</button>
+              <button id="levelTunnelBtn2" type="button" class="bg-gray-700 hover:bg-gray-600 text-xs py-1.5 rounded font-bold" title="Tunnel (U)">⛰ Tunnel</button>
             </div>
-            <p class="text-[11px] text-sky-200/80 leading-relaxed">Works like roads: Ground point → Bridge point = entrance (cars climb the ramp). Bridge → Bridge = on the bridge. Bridge → Ground = exit. Ground-level routes pass <i>under</i> bridges; cars drive over a ramp or bridge only on Bridge-level points. Bridge parts of a route are highlighted in blue.</p>
+            <p class="text-[11px] text-sky-200/80 leading-relaxed">Works like roads: Ground → Bridge = entrance, Bridge → Bridge = on the bridge, Bridge → Ground = exit. <b class="text-amber-300">Tunnel (U):</b> Ground → Tunnel = cars enter the tunnel and disappear underground, Tunnel → Ground = they come out again. Bridge parts of a route are blue, tunnel parts amber.</p>
           </div>
           <div>
             <label class="block text-xs text-gray-400 mb-1">Route Style:</label>
@@ -838,6 +863,8 @@
         aiRoutes = [];
         trafficLights = [];
         trafficCars = [];
+        incidents = []; crashFx = [];
+        transitStops = []; trams = [];
         activeRoadPoints = [];
         activeCustomLinePoints = [];
         activeTramPoints = [];
@@ -922,23 +949,25 @@
     }
 
     function setTool(tool) {
+      if (tool !== 'draw' && tool !== 'ai-route' && drawLevel === -1) setDrawLevel(0);
       if (typeof aiTrafficPanel !== 'undefined' && aiTrafficPanel) {
         aiTrafficPanel.classList.toggle('hidden', tool !== 'ai-route');
       }
 
       currentTool = tool;
-      [toolDrawBtn, toolMarkingBtn, toolEraseBtn, toolEditBtn, toolPanBtn, toolTramBtn, toolAIRouteBtn, toolLightsBtn].forEach(b => {
+      [toolDrawBtn, toolMarkingBtn, toolEraseBtn, toolEditBtn, toolPanBtn, toolTramBtn, toolAIRouteBtn, toolLightsBtn, toolStopsBtn].forEach(b => {
         b.classList.remove('bg-indigo-600', 'text-white');
         b.classList.add('text-gray-300');
       });
-      const btn = {draw:toolDrawBtn, marking:toolMarkingBtn, erase:toolEraseBtn, edit:toolEditBtn, pan:toolPanBtn, tram:toolTramBtn, 'ai-route':toolAIRouteBtn, lights:toolLightsBtn}[tool];
+      const btn = {draw:toolDrawBtn, marking:toolMarkingBtn, erase:toolEraseBtn, edit:toolEditBtn, pan:toolPanBtn, tram:toolTramBtn, 'ai-route':toolAIRouteBtn, lights:toolLightsBtn, stops:toolStopsBtn}[tool];
       if (btn) btn.classList.add('bg-indigo-600', 'text-white');
 
       markingPanel.classList.toggle('hidden', tool !== 'marking');
       tramParamPanel.classList.toggle('hidden', tool !== 'tram');
       aiRoutePanel.classList.toggle('hidden', tool !== 'ai-route');
       lightsPanel.classList.toggle('hidden', tool !== 'lights');
-      roadParamPanel.classList.toggle('hidden', ['marking','tram','ai-route','lights'].includes(tool));
+      stopsPanel.classList.toggle('hidden', tool !== 'stops');
+      roadParamPanel.classList.toggle('hidden', ['marking','tram','ai-route','lights','stops'].includes(tool));
 
       canvas.classList.remove('canvas-pan', 'canvas-panning', 'canvas-erase');
       if (tool === 'pan') canvas.classList.add('canvas-pan');
@@ -988,6 +1017,8 @@
       } else if (currentTool === 'tram') {
         activeTramPoints.push({ ...snappedPoint, level: drawLevel });
         updateFinishButton();
+      } else if (currentTool === 'stops') {
+        placeTransitStop(stopKind, mouseWorldPos);
       } else if (currentTool === 'ai-route') {
         activeAIRoutePoints.push({ ...snappedPoint, level: drawLevel });
         updateFinishButton();
@@ -1119,7 +1150,7 @@
         activeCustomLinePoints = [];
         updateFinishButton();
       } else if (currentTool === 'ai-route' && activeAIRoutePoints.length >= 2) {
-        aiRoutes.push({ id: Date.now(), style: aiRouteStyle, points: snapRouteEndsToRoutes(activeAIRoutePoints),
+        aiRoutes.push({ id: Date.now(), style: aiRouteStyle, points: snapRouteEndsToRoutes(activeAIRoutePoints, currentAIRouteType()), bus: document.getElementById('aiRouteBusChk').checked, tram: document.getElementById('aiRouteTramChk').checked,
           smooth: smoothAIRoute
         });
         // Перші машини з'являються одразу після створення першого маршруту.
@@ -1346,9 +1377,18 @@
     // drawSmoothPath (квадратичні сегменти через середини сусідніх точок).
     // Це потрібно, щоб машини їхали по видимій дузі, а не "зрізали" по прямій
     // між опорними точками маршруту.
+    // Рівень сегмента маршруту: -1 під землею (обидві точки в тунелі), 1 міст/в'їзд на міст, 0 земля (в т.ч. спуск до тунелю)
+    function aiSegLevel(a, b) {
+      const la = a.level === -1 ? -1 : (a.level ? 1 : 0);
+      const lb = b.level === -1 ? -1 : (b.level ? 1 : 0);
+      if (la === -1 && lb === -1) return -1;
+      if (la === -1 || lb === -1) return 0;
+      return (la === 1 || lb === 1) ? 1 : 0;
+    }
+
     function sampleSmoothPath(points, samplesPerSegment = 14) {
       if (!points) return [];
-      const segLevel = i => (points[i].level || points[i + 1].level) ? 1 : 0;
+      const segLevel = i => aiSegLevel(points[i], points[i + 1]);
       if (points.length < 3) return points.map(p => ({ x: p.x, y: p.y, level: points.length > 1 ? segLevel(0) : 0 }));
 
       const result = [{ x: points[0].x, y: points[0].y, level: segLevel(0) }];
@@ -1399,13 +1439,13 @@
             x: a.x + (b.x-a.x)*t,
             y: a.y + (b.y-a.y)*t,
             angle: Math.atan2(b.y-a.y, b.x-a.x),
-            level: (a.level || b.level) ? 1 : 0
+            level: aiSegLevel(a, b)
           };
         }
         left -= seg;
       }
       const a = points[Math.max(0, points.length-2)], b = points[points.length-1];
-      return {x:b.x, y:b.y, angle:Math.atan2(b.y-a.y,b.x-a.x), level:(a.level||b.level)?1:0};
+      return {x:b.x, y:b.y, angle:Math.atan2(b.y-a.y,b.x-a.x), level: aiSegLevel(a, b)};
     }
 
     function randomTrafficSpeed() {
@@ -1438,7 +1478,7 @@
         const x = a.x + dx * t, y = a.y + dy * t;
         const d = Math.hypot(pt.x - x, pt.y - y);
         if (!best || d < best.dist) {
-          best = { dist: d, along: acc + segLen * t, x, y, angle: Math.atan2(dy, dx), level: (a.level || b.level) ? 1 : 0 };
+          best = { dist: d, along: acc + segLen * t, x, y, angle: Math.atan2(dy, dx), level: aiSegLevel(a, b) };
         }
         acc += segLen;
       }
@@ -1450,9 +1490,9 @@
     function findJoinTarget(routes, currentIndex, endPoint, endAngle) {
       let best = null;
       routes.forEach((r, idx) => {
-        if (idx === currentIndex) return;
+        if (idx === currentIndex || routeType(r) !== routeType(routes[currentIndex])) return;
         const near = nearestOnTrace(getRouteTrace(r), endPoint);
-        if (!near || near.dist > ROUTE_JOIN_RADIUS || near.level !== (endPoint.level ? 1 : 0)) return;
+        if (!near || near.dist > ROUTE_JOIN_RADIUS || near.level !== (endPoint.level || 0)) return;
         // Не розвертаємо машину назустріч: напрямок цільового маршруту має бути хоча б приблизно "вперед".
         const dot = Math.cos(endAngle) * Math.cos(near.angle) + Math.sin(endAngle) * Math.sin(near.angle);
         if (dot < -0.5) return;
@@ -1463,11 +1503,11 @@
 
     // Під час завершення нового маршруту "приклеює" його початок та кінець до найближчих ліній
     // інших маршрутів, якщо вони достатньо близько — щоб лінії візуально й логічно з'єднувались.
-    function snapRouteEndsToRoutes(points) {
+    function snapRouteEndsToRoutes(points, type = 'car') {
       if (!points || points.length < 2) return points;
-      const pool = trafficRoutePool();
+      const pool = trafficRoutePool().filter(r => routeType(r) === type);
       if (!pool.length) return points;
-      const result = points.map(p => ({ x: p.x, y: p.y, level: p.level ? 1 : 0 }));
+      const result = points.map(p => ({ x: p.x, y: p.y, level: p.level === -1 ? -1 : (p.level ? 1 : 0) }));
       [0, result.length - 1].forEach(i => {
         let best = null;
         pool.forEach(r => {
@@ -1486,7 +1526,7 @@
       const options = [];
 
       routes.forEach((r, idx) => {
-        if (!r || !r.points || !r.points.length) return;
+        if (!r || !r.points || !r.points.length || routeType(r) !== routeType(current)) return;
         const start = r.points[0];
         const dist = Math.hypot(start.x - endPoint.x, start.y - endPoint.y);
         if (dist <= ROUTE_JUNCTION_TOLERANCE) options.push(idx);
@@ -1552,10 +1592,16 @@
       return best;
     }
 
+    const CAR_COLORS = ['#2563EB', '#DC2626', '#E5E7EB', '#1F2937', '#9CA3AF', '#16A34A', '#EAB308', '#7C3AED', '#F97316', '#0EA5E9', '#7F1D1D'];
+
     function spawnTrafficCar(routeIndex = null) {
       const routes = trafficRoutePool();
       if (!routes.length) return null;
-      if (routeIndex == null) routeIndex = Math.floor(Math.random() * routes.length);
+      if (routeIndex == null) {
+        const ids = routes.map((r, i) => i).filter(i => routeType(routes[i]) === 'car'); // звичайні авто — лише на звичайних маршрутах
+        if (!ids.length) return null;
+        routeIndex = ids[Math.floor(Math.random() * ids.length)];
+      }
       const route = routes[routeIndex];
       const len = routeLength(getRouteTrace(route));
       if (len < 20) return null;
@@ -1568,6 +1614,8 @@
         targetSpeed: randomTrafficSpeed(),
         wait: 0,
         turnSignal: null,
+        color: CAR_COLORS[Math.floor(Math.random() * CAR_COLORS.length)],
+        braking: false,
         length: 30,
         width: 16
       };
@@ -1598,10 +1646,10 @@
 
       // Поступово доводимо кількість авто до заданої.
       trafficSpawnAccumulator += dt;
-      if (trafficCars.length < trafficCount && trafficSpawnAccumulator > 0.18) {
+      if (trafficCars.filter(c => c.kind !== 'bus').length < trafficCount && trafficSpawnAccumulator > 0.18) {
         trafficSpawnAccumulator = 0;
         const car = spawnTrafficCar();
-        if (car) trafficCars.push(car);
+        if (car && spawnClear(car.routeIndex, car.distance)) trafficCars.push(car);
       }
 
       for (let i = trafficCars.length - 1; i >= 0; i--) {
@@ -1612,12 +1660,22 @@
         const trace = getRouteTrace(route);
         const len = routeLength(trace);
         const pos = pointAtDistance(trace, car.distance);
+        car.px = pos.x; car.py = pos.y; car.pa = pos.angle; car.plevel = pos.level || 0;
+        car.age = (car.age || 0) + dt;
+        if (car.crashed) { car.speed = 0; car.braking = true; car.turnSignal = null; continue; } // розбита машина стоїть
         updateTurnSignal(car, route, pos);
 
         const red = isOnRedLight(car, route, pos);
         const ahead = nearestCarAhead(car, pos);
 
         let desired = car.targetSpeed;
+
+        // Реалістично: перед поворотом машина пригальмовує (чим різкіший поворот — тим повільніше).
+        const lookP = pointAtDistance(trace, Math.min(len, car.distance + 40));
+        let turn = lookP.angle - pos.angle;
+        while (turn > Math.PI) turn -= Math.PI * 2;
+        while (turn < -Math.PI) turn += Math.PI * 2;
+        desired = Math.min(desired, car.targetSpeed * (1 - 0.55 * Math.min(1, Math.abs(turn) / 1.1)));
 
         // Червоне світло: зупинка перед перехрестям.
         if (red) desired = 0;
@@ -1629,9 +1687,16 @@
           if (gap < safe) desired = Math.min(desired, Math.max(0, (gap-safe)*3));
         }
 
+        // Перешкода на іншому маршруті в тому ж коридорі (трамвай, автобус, уламки): гальмуємо, щоб не врізатись.
+        const ob = obstacleAhead(car.px, car.py, car.pa, car, null, car.length / 2);
+        if (ob && ob.fwd < ob.need + car.speed * 0.35) desired = Math.min(desired, Math.max(0, (ob.fwd - ob.need) * 2.5));
+
         // Невелика випадкова зміна швидкості, щоб машини не їхали колоною з однаковим темпом.
         car.targetSpeed += (Math.random()-0.5) * 7 * dt;
         car.targetSpeed = Math.max(trafficConfig.minSpeed, Math.min(trafficConfig.maxSpeed, car.targetSpeed));
+
+        if (car.kind === 'bus') desired = Math.min(desired, busStopSpeed(car, dt)); // зупинка автобуса
+        car.braking = desired < car.speed - 1.5; // для стоп-сигналів
 
         // Плавне наближення до бажаної швидкості.
         const acceleration = desired > car.speed ? 38 : 70;
@@ -1670,6 +1735,490 @@
       }
     }
 
+    // ============================================================
+    // ГРОМАДСЬКИЙ ТРАНСПОРТ: автобуси (лише на автобусних смугах), трамваї (лише по рейках), зупинки
+    // ============================================================
+    let transitStops = [];
+    let trams = [];
+    let stopKind = 'bus';
+    let busSpawnT = 0;
+    function routeType(r) { return r.bus ? 'bus' : (r.tram ? 'tram' : 'car'); }
+    const busChk = document.getElementById('aiRouteBusChk'), tramChk = document.getElementById('aiRouteTramChk');
+    busChk.addEventListener('change', () => { if (busChk.checked) tramChk.checked = false; });
+    tramChk.addEventListener('change', () => { if (tramChk.checked) busChk.checked = false; });
+    function currentAIRouteType() { return busChk.checked ? 'bus' : (tramChk.checked ? 'tram' : 'car'); }
+    const BUS_COLORS = ['#F59E0B', '#16A34A', '#DC2626', '#0EA5E9'];
+    const toolStopsBtn = document.getElementById('toolStops');
+    const stopsPanel = document.getElementById('stopsPanel');
+
+    toolStopsBtn.addEventListener('click', () => setTool('stops'));
+    new ResizeObserver(() => {
+      const pw = canvas.parentElement.clientWidth, ph = canvas.parentElement.clientHeight;
+      if (pw && ph && (pw !== canvas.width || ph !== canvas.height)) resizeCanvas();
+    }).observe(canvas.parentElement);
+    const stopBtns = { bus: 'stopKindBus', tram: 'stopKindTram', delete: 'stopKindDel' };
+    const stopBtnOn = { bus: 'bg-green-600 text-white', tram: 'bg-red-600 text-white', delete: 'bg-red-700 text-white' };
+    Object.entries(stopBtns).forEach(([kind, id]) => {
+      document.getElementById(id).addEventListener('click', () => {
+        stopKind = kind;
+        Object.entries(stopBtns).forEach(([k, bid]) => {
+          document.getElementById(bid).className = `text-xs py-1.5 rounded font-bold ${k === kind ? stopBtnOn[k] : 'bg-gray-700 hover:bg-gray-600'}`;
+        });
+      });
+    });
+
+    // Траєкторія трамвая (та сама крива, що й намальовані рейки). Кеш за підписом точок.
+    const tramTraceCache = new WeakMap();
+    function tramTrace(track) {
+      const sig = track.points.map(q => q.x + ',' + q.y).join(';') + (track.smooth ? 's' : '');
+      const c = tramTraceCache.get(track.points);
+      if (c && c.sig === sig) return c.trace;
+      const trace = (track.smooth && track.points.length > 2)
+        ? sampleSmoothPath(track.points)
+        : track.points.map(q => ({ x: q.x, y: q.y, level: q.level === 1 ? 1 : 0 }));
+      tramTraceCache.set(track.points, { sig, trace });
+      return trace;
+    }
+
+    function placeTransitStop(kind, pt) {
+      if (kind === 'delete') {                       // режим видалення: клік по зупинці
+        let bi = -1, bd = 26;
+        transitStops.forEach((st, i) => {
+          const d = Math.hypot(st.x + Math.sin(st.angle) * -(st.kind === 'bus' ? 20 : 22) * st.side - pt.x,
+                               st.y + Math.cos(st.angle) * (st.kind === 'bus' ? 20 : 22) * st.side - pt.y);
+          const d2 = Math.hypot(st.x - pt.x, st.y - pt.y);
+          if (Math.min(d, d2) < bd) { bd = Math.min(d, d2); bi = i; }
+        });
+        if (bi >= 0) { transitStops.splice(bi, 1); showToast('Stop removed'); }
+        else showToast('Click on a stop to remove it', 'warn', 2000);
+        return;
+      }
+
+      let best = null;
+      if (kind === 'bus') {
+        aiRoutes.forEach(r => {
+          if (!r.bus) return;
+          const n = nearestOnTrace(getRouteTrace(r), pt);
+          if (n && n.dist < 60 && (!best || n.dist < best.dist)) best = n;
+        });
+      } else {
+        aiRoutes.forEach(r => {
+          if (!r.tram) return;
+          const n = nearestOnTrace(getRouteTrace(r), pt);
+          if (n && n.dist < 60 && (!best || n.dist < best.dist)) best = n;
+        });
+      }
+      if (!best) { showToast(kind === 'bus' ? 'Click closer to a bus route (AI-route → Bus route)' : 'Click closer to a tram route (AI-route → Tram route)', 'warn', 3000); return; }
+      const side = Math.sign(Math.cos(best.angle) * (pt.y - best.y) - Math.sin(best.angle) * (pt.x - best.x)) || 1;
+      transitStops.push({ id: Date.now() + Math.random(), kind, x: best.x, y: best.y, angle: best.angle, side });
+    }
+
+    function drawTransitStops() {
+      transitStops.forEach(st => {
+        const bus = st.kind === 'bus';
+        const len = bus ? 34 : 58, off = (bus ? 20 : 22) * st.side;
+        ctx.save();
+        ctx.translate(st.x, st.y);
+        ctx.rotate(st.angle);
+        ctx.fillStyle = '#94A3B8'; ctx.fillRect(-len/2, off - 5, len, 10);                 // платформа
+        ctx.fillStyle = '#FBBF24'; ctx.fillRect(-len/2, off - 5 * st.side - 0.8, len, 1.6); // жовтий бордюр до дороги
+        ctx.fillStyle = 'rgba(30,41,59,0.9)'; ctx.fillRect(-len/4, off - 3.5, len/2, 7);    // навіс
+        ctx.strokeStyle = 'rgba(226,232,240,0.7)'; ctx.lineWidth = 0.8; ctx.strokeRect(-len/2, off - 5, len, 10);
+        ctx.restore();
+        // знак зупинки (у світових координатах, щоб текст не крутився)
+        const lx = len / 2 - 3, ly = off, c = Math.cos(st.angle), sn = Math.sin(st.angle);
+        const wx = st.x + lx * c - ly * sn, wy = st.y + lx * sn + ly * c;
+        ctx.beginPath(); ctx.arc(wx, wy, 5, 0, Math.PI * 2);
+        ctx.fillStyle = bus ? '#16A34A' : '#DC2626'; ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 1; ctx.stroke();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 6px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(bus ? 'B' : 'T', wx, wy + 0.3);
+      });
+    }
+
+    // Автобусна смуга: червоне покриття + напис BUS (лише там, де маршрут — автобусний).
+    function drawBusLanes(level) {
+      aiRoutes.forEach(r => {
+        if (!r.bus || !r.points || r.points.length < 2) return;
+        const tr = getRouteTrace(r);
+        ctx.save();
+        ctx.lineCap = 'butt'; ctx.lineJoin = 'round'; ctx.setLineDash([]);
+        ctx.beginPath();
+        let open = false;
+        for (let i = 1; i < tr.length; i++) {
+          const a = tr[i - 1], b = tr[i], lv = aiSegLevel(a, b);
+          if (lv === level) { if (!open) { ctx.moveTo(a.x, a.y); open = true; } ctx.lineTo(b.x, b.y); } else open = false;
+        }
+        ctx.lineWidth = 13; ctx.strokeStyle = 'rgba(185,28,28,0.55)'; ctx.stroke();
+        const len = routeLength(tr);
+        ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.font = 'bold 8px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        for (let d = 50; d < len - 30; d += 150) {
+          const q = pointAtDistance(tr, d);
+          if (q.level !== level) continue;
+          ctx.save(); ctx.translate(q.x, q.y); ctx.rotate(q.angle); ctx.fillText('BUS', 0, 0); ctx.restore();
+        }
+        ctx.restore();
+      });
+    }
+
+    // Автобус гальмує перед зупинкою, стоїть кілька секунд і їде далі.
+    function busStopSpeed(car, dt) {
+      if (car.dwell > 0) { car.dwell -= dt; return 0; }
+      let lim = Infinity;
+      for (const st of transitStops) {
+        if (st.kind !== 'bus') continue;
+        const dx = st.x - car.px, dy = st.y - car.py, d = Math.hypot(dx, dy);
+        if (d > 70) { if (car.servedStop === st.id && d > 30) car.servedStop = null; continue; }
+        if (car.servedStop === st.id) continue;
+        if (dx * Math.cos(car.pa) + dy * Math.sin(car.pa) < -3) continue;
+        if (d <= 4) { car.dwell = 4; car.servedStop = st.id; return 0; }
+        lim = Math.min(lim, Math.max(9, d * 1.3));
+      }
+      return lim;
+    }
+
+    // Найближча перешкода попереду в коридорі руху (будь-який маршрут): авто, автобуси, трамваї, уламки.
+    // Той, хто їде в той самий бік, — гальмуємо; уламки — об'їхати/проїхати неможливо.
+    function obstacleAhead(x, y, ang, selfCar, selfTram, halfLen, maxAhead = 150) {
+      const cx = Math.cos(ang), sy = Math.sin(ang);
+      let best = null;
+      const test = (ox, oy, oa, half, crashed) => {
+        const dx = ox - x, dy = oy - y;
+        const fwd = dx * cx + dy * sy, lat = Math.abs(-dx * sy + dy * cx);
+        if (fwd <= 0 || fwd > maxAhead || lat > 12) return;
+        if (!crashed && Math.abs(angDiff(ang, oa)) > 0.6) return;
+        if (!best || fwd < best.fwd) best = { fwd, need: halfLen + half + 10 };
+      };
+      trafficCars.forEach(c => {
+        if (c === selfCar || c.px == null) return;
+        test(c.px + (c.cx || 0), c.py + (c.cy || 0), c.pa, c.length / 2, !!c.crashed);
+      });
+      trams.forEach(o => {
+        if (o === selfTram || !o.secs) return;
+        o.secs.forEach(q => test(q.x, q.y, q.angle, 16, false));
+      });
+      return best;
+    }
+
+    // Не з'являтись поверх іншого транспорту (на початку маршрутів різних типів, що лежать на одній лінії).
+    function spawnClear(routeIndex, distance, radius = 50) {
+      const route = trafficRoutePool()[routeIndex];
+      if (!route) return false;
+      const pos = pointAtDistance(getRouteTrace(route), distance);
+      const near = (x, y) => Math.hypot(x - pos.x, y - pos.y) < radius;
+      if (trafficCars.some(c => c.px != null && near(c.px + (c.cx || 0), c.py + (c.cy || 0)))) return false;
+      return !trams.some(t => (t.secs || []).some(q => near(q.x, q.y)));
+    }
+
+    function stepTram(t, dt, routes) {
+      const route = routes[t.routeIndex];
+      if (!route || !route.tram) { t.done = true; return; }
+      const tr = getRouteTrace(route), len = routeLength(tr);
+      t.secs = [t.dist + 17, t.dist - 17].map(d => ({ ...pointAtDistance(tr, Math.max(0, d)) })); // положення секцій для інших
+      if (t.dwell > 0) { t.dwell -= dt; t.speed = 0; if (t.dwell <= 0 && t.ending) t.done = true; return; }
+
+      const cp = pointAtDistance(tr, t.dist);
+      let lim = 62;
+      transitStops.forEach(st => {
+        if (st.kind !== 'tram') return;
+        const n = nearestOnTrace(tr, st);
+        if (!n || n.dist > 12) return;                      // зупинка не на цьому маршруті
+        const sd = Math.hypot(st.x - cp.x, st.y - cp.y);
+        if (sd > 120) { if (t.served === st.id && sd > 40) t.served = null; return; }
+        if (t.served === st.id) return;
+        if ((st.x - cp.x) * Math.cos(cp.angle) + (st.y - cp.y) * Math.sin(cp.angle) <= 0) return;
+        if (sd <= 3) { t.dwell = 5; t.served = st.id; t.speed = 0; }
+        else lim = Math.min(lim, Math.max(8, sd * 1.1));
+      });
+      if (t.dwell > 0) return;
+      if (isOnRedLight(t, route, cp)) lim = 0;               // світлофори діють і на трамваї
+      const ob = obstacleAhead(cp.x, cp.y, cp.angle, null, t, 34);   // авто / автобус / трамвай / уламки попереду
+      if (ob && ob.fwd < ob.need + t.speed * 0.35) lim = Math.min(lim, Math.max(0, (ob.fwd - ob.need) * 2.5));
+      t.speed += (lim - t.speed) * Math.min(1, dt * (lim > t.speed ? 1.2 : 3));
+      t.dist += t.speed * dt;
+
+      if (t.dist >= len) {                                    // кінець маршруту
+        const opts = findNextRouteOptions(routes, t.routeIndex);
+        const endPos = pointAtDistance(tr, len);
+        const join = opts.length ? null : findJoinTarget(routes, t.routeIndex, endPos, endPos.angle);
+        if (opts.length) { t.routeIndex = opts[Math.floor(Math.random() * opts.length)]; t.dist = Math.max(0, t.dist - len); }
+        else if (join) { t.routeIndex = join.routeIndex; t.dist = join.along; }
+        else { t.dist = len; t.dwell = 3; t.ending = true; t.speed = 0; } // кінцева: постояти й поїхати з маршруту
+      }
+    }
+
+    function updateTransit(dt) {
+      if (!trafficEnabled) return;
+      const routes = trafficRoutePool();
+
+      // Автобуси: з'являються на початку автобусних маршрутів
+      busSpawnT -= dt;
+      const busRoutes = routes.map((r, i) => i).filter(i => routes[i].bus);
+      if (busRoutes.length && busSpawnT <= 0 && trafficCars.filter(c => c.kind === 'bus').length < Math.min(8, busRoutes.length * 2)) {
+        busSpawnT = 3;
+        const ri = busRoutes[Math.floor(Math.random() * busRoutes.length)];
+        if (!trafficCars.some(c => c.routeIndex === ri && c.distance < 90) && spawnClear(ri, 1)) {
+          const b = spawnTrafficCar(ri);
+          if (b) {
+            Object.assign(b, { kind: 'bus', length: 46, width: 17, distance: 1, color: BUS_COLORS[Math.floor(Math.random() * BUS_COLORS.length)] });
+            b.targetSpeed *= 0.85;
+            trafficCars.push(b);
+          }
+        }
+      }
+
+      // Трамваї: з'являються на початку трамвайних AI-маршрутів і їдуть вздовж них
+      trams = trams.filter(t => !t.done);
+      routes.forEach((r, ri) => {
+        if (!r.tram) return;
+        const len = routeLength(getRouteTrace(r));
+        if (len < 100) return;
+        const want = len > 700 ? 2 : 1;
+        if (trams.filter(t => t.routeIndex === ri).length < want && !trams.some(t => t.routeIndex === ri && t.dist < 120) && spawnClear(ri, 34, 70)) {
+          trams.push({ routeIndex: ri, dist: 34, speed: 0, dwell: 0, served: null, done: false });
+        }
+      });
+      trams.forEach(t => stepTram(t, dt, routes));
+    }
+
+    function drawTrams(level) {
+      if (!trafficEnabled) return;
+      const routes = trafficRoutePool();
+      trams.forEach(t => {
+        const route = routes[t.routeIndex];
+        if (!route) return;
+        const tr = getRouteTrace(route);
+        const centers = [t.dist + 17, t.dist - 17].map(d => pointAtDistance(tr, Math.max(0, d)));
+        if ((centers[0].level ? 1 : 0) !== level) return;
+        const W = 14.4;
+        // гармошка між секціями
+        const j0 = pointAtDistance(tr, t.dist + 1), j1 = pointAtDistance(tr, Math.max(0, t.dist - 1));
+        ctx.strokeStyle = '#111827'; ctx.lineWidth = W - 3; ctx.lineCap = 'butt';
+        ctx.beginPath(); ctx.moveTo(j0.x, j0.y); ctx.lineTo(j1.x, j1.y); ctx.stroke();
+        centers.forEach((q, i) => {
+          ctx.save(); ctx.translate(q.x, q.y); ctx.rotate(q.angle);
+          rrPath(-15, -W/2 + 2, 32, W, 4); ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fill();
+          rrPath(-16, -W/2, 32, W, 4); ctx.fillStyle = '#F8FAFC'; ctx.fill();
+          ctx.strokeStyle = 'rgba(0,0,0,0.4)'; ctx.lineWidth = 0.8; ctx.stroke();
+          ctx.fillStyle = '#DC2626'; ctx.fillRect(-14, -1.4, 28, 2.8);                    // смуга по даху
+          ctx.fillStyle = '#1E293B'; ctx.fillRect(-13, -W/2 + 0.8, 26, 2); ctx.fillRect(-13, W/2 - 2.8, 26, 2); // вікна
+          ctx.fillStyle = '#94A3B8'; ctx.fillRect(-8, -3.5, 7, 7); ctx.fillRect(2, -3.5, 7, 7);                 // кондиціонери
+          const cabX = i === 0 ? 11 : -16;                                                // кабіна на зовнішньому кінці
+          ctx.fillStyle = '#1E293B'; ctx.fillRect(cabX, -W/2 + 2, 5, W - 4);
+          ctx.fillStyle = i === 0 ? '#FEF9C3' : '#B91C1C';
+          ctx.fillRect(i === 0 ? 14 : -16, -W/2 + 1.2, 2, 2.6); ctx.fillRect(i === 0 ? 14 : -16, W/2 - 3.8, 2, 2.6);
+          ctx.restore();
+        });
+      });
+    }
+
+    // ============================================================
+    // АВАРІЇ: зіткнення → розбиті машини → поліція та швидка → розчищення
+    // ============================================================
+    let incidents = [];
+    let crashFx = [];
+
+    const angDiff = (a, b) => { let d = a - b; while (d > Math.PI) d -= Math.PI * 2; while (d < -Math.PI) d += Math.PI * 2; return d; };
+
+    function emitFx(k, x, y, n, speed, life, r) {
+      for (let i = 0; i < n; i++) {
+        const a = Math.random() * Math.PI * 2, v = speed * (0.4 + Math.random() * 0.8);
+        crashFx.push({ k, x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, t: 0, life: life * (0.7 + Math.random() * 0.6), r });
+      }
+      if (crashFx.length > 350) crashFx.splice(0, crashFx.length - 350);
+    }
+
+    function triggerCrash(a, b) {
+      let inc = incidents.find(i => i.phase !== 'clearing' && (i.cars.includes(a) || i.cars.includes(b)));
+      const isNew = !inc;
+      if (!inc) {
+        inc = { cars: [], phase: 'crashed', timer: 0, vehicles: [] };
+        incidents.push(inc);
+      }
+      [[a, b], [b, a]].forEach(([c, o]) => {
+        if (c.crashed) return;
+        const dx = (c.px + (c.cx || 0)) - (o.px + (o.cx || 0)), dy = (c.py + (c.cy || 0)) - (o.py + (o.cy || 0));
+        const d = Math.hypot(dx, dy) || 1;
+        c.crashed = true; c.speed = 0; c.turnSignal = null;
+        c.cx = 0; c.cy = 0; c.ca = 0;
+        c.vx = dx / d * 40; c.vy = dy / d * 40;                       // удар відкидає машини
+        c.w = (Math.random() < 0.5 ? -1 : 1) * (2 + Math.random() * 2.5); // і закручує
+        inc.cars.push(c);
+      });
+      const mx = (a.px + b.px) / 2, my = (a.py + b.py) / 2;
+      emitFx('spark', mx, my, 16, 90, 0.5, 1);
+      emitFx('smoke', mx, my, 6, 14, 1.6, 4);
+      if (isNew && typeof showToast === 'function') showToast('🚨 Crash! Police and ambulance are on the way', 'warn', 3500);
+    }
+
+    function mkEmergency(type, c, extraBack) {
+      const target = Math.max(6, c.distance - 40 - extraBack);
+      return { type, routeIndex: c.routeIndex, distance: Math.max(0, target - 900), target, speed: 0, state: 'arrive', arrived: false, done: false };
+    }
+
+    function updateCrashSystem(dt) {
+      if (!trafficEnabled) return;
+      const routes = trafficRoutePool();
+
+      // 1) Фізика уламків + дим
+      trafficCars.forEach(c => {
+        if (!c.crashed) return;
+        c.cx += c.vx * dt; c.cy += c.vy * dt;
+        const dr = Math.exp(-4 * dt); c.vx *= dr; c.vy *= dr;
+        c.ca += c.w * dt; c.w *= Math.exp(-3 * dt);
+        c.smokeT = (c.smokeT || 0) - dt;
+        if (c.smokeT <= 0 && !c.fade) {
+          c.smokeT = 0.12 + Math.random() * 0.12;
+          emitFx('smoke', c.px + c.cx + Math.cos(c.pa) * c.length * 0.25, c.py + c.cy + Math.sin(c.pa) * c.length * 0.25, 1, 9, 1.8, 3);
+        }
+      });
+
+      // 2) Зіткнення: машини різних напрямків, що перетнулися на одному рівні
+      for (let i = 0; i < trafficCars.length; i++) {
+        for (let j = i + 1; j < trafficCars.length; j++) {
+          const a = trafficCars[i], b = trafficCars[j];
+          if (a.px == null || b.px == null || (a.crashed && b.crashed)) continue;
+          if ((a.age || 0) < 1.5 || (b.age || 0) < 1.5 || a.plevel !== b.plevel) continue;
+          const dx = (a.px + (a.cx || 0)) - (b.px + (b.cx || 0)), dy = (a.py + (a.cy || 0)) - (b.py + (b.cy || 0));
+          const lim = a.length * 0.6;
+          if (dx * dx + dy * dy > lim * lim) continue;
+          if (Math.max(a.crashed ? 0 : a.speed, b.crashed ? 0 : b.speed) < 8) continue;
+          if (Math.abs(angDiff(a.pa, b.pa)) < 0.35) continue; // їдуть в один бік — не аварія
+          triggerCrash(a, b);
+        }
+      }
+
+      // 2b) Авто врізається в трамвай, що перетинає його шлях
+      trams.forEach(t => (t.secs || []).forEach(q => {
+        trafficCars.forEach(c => {
+          if (c.crashed || c.px == null || (c.age || 0) < 1.5 || c.speed < 8 || (c.plevel || 0) !== (q.level ? 1 : 0)) return;
+          const dx = c.px + (c.cx || 0) - q.x, dy = c.py + (c.cy || 0) - q.y;
+          if (dx * dx + dy * dy > 20 * 20 || Math.abs(angDiff(c.pa, q.angle)) < 0.35) return;
+          triggerCrash(c, { px: q.x, py: q.y, cx: 0, cy: 0, crashed: true });
+        });
+      }));
+
+      // 3) Хід аварії
+      for (let k = incidents.length - 1; k >= 0; k--) {
+        const inc = incidents[k];
+        inc.cars = inc.cars.filter(c => trafficCars.includes(c));
+        if (!inc.cars.length && inc.phase !== 'clearing') { incidents.splice(k, 1); continue; }
+        inc.timer += dt;
+
+        if (inc.phase === 'crashed' && inc.timer > 4) {
+          const c1 = inc.cars[0];
+          const c2 = inc.cars.find(c => c.routeIndex !== c1.routeIndex) || inc.cars[1] || c1;
+          inc.vehicles = [mkEmergency('police', c1, 0), mkEmergency('ambulance', c2, c2.routeIndex === c1.routeIndex ? 38 : 0)];
+          inc.phase = 'response'; inc.timer = 0;
+        }
+
+        inc.vehicles.forEach(v => {
+          if (v.done) return;
+          const route = routes[v.routeIndex];
+          if (!route) { v.done = true; return; }
+          if (v.state === 'arrive') {
+            const rem = v.target - v.distance;
+            if (rem <= 1.5) { v.distance = v.target; v.speed = 0; v.arrived = true; }
+            else {
+              v.speed += (Math.min(130, 18 + rem * 2.2) - v.speed) * Math.min(1, dt * 4);
+              v.distance = Math.min(v.target, v.distance + v.speed * dt);
+            }
+          } else {
+            v.speed += (130 - v.speed) * Math.min(1, dt * 2.5);
+            v.distance += v.speed * dt;
+            if (v.distance >= routeLength(getRouteTrace(route))) v.done = true;
+          }
+        });
+
+        if (inc.phase === 'response' && inc.vehicles.every(v => v.arrived || v.done)) { inc.phase = 'onscene'; inc.timer = 0; }
+        if (inc.phase === 'onscene' && inc.timer > 6) {
+          inc.phase = 'clearing'; inc.timer = 0;
+          inc.vehicles.forEach(v => { if (!v.done) { v.state = 'leave'; v.arrived = false; } });
+        }
+        if (inc.phase === 'clearing') {
+          inc.cars.forEach(c => { c.fade = Math.min(1, inc.timer / 1.5); });
+          if (inc.timer >= 1.5 && inc.cars.length) {
+            trafficCars = trafficCars.filter(c => !inc.cars.includes(c));
+            inc.cars = [];
+          }
+          if (!inc.cars.length && inc.vehicles.every(v => v.done)) incidents.splice(k, 1);
+        }
+      }
+
+      // 4) Частинки
+      for (let i = crashFx.length - 1; i >= 0; i--) {
+        const f = crashFx[i];
+        f.t += dt;
+        if (f.t >= f.life) { crashFx.splice(i, 1); continue; }
+        f.x += f.vx * dt; f.y += f.vy * dt;
+        const d = Math.exp((f.k === 'spark' ? -3 : -1.2) * dt); f.vx *= d; f.vy *= d;
+      }
+    }
+
+    function rrPath(x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function drawEmergencyVehicle(v, p) {
+      const L = 34, W = 17, police = v.type === 'police';
+      const flash = Math.floor(performance.now() / 150) % 2 === 0;
+      const cA = police ? '#2563EB' : '#EF4444', cB = police ? '#EF4444' : '#3B82F6';
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      rrPath(-L/2 + 1.5, -W/2 + 2.5, L, W, 4); ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fill();
+      rrPath(-L/2, -W/2, L, W, 4); ctx.fillStyle = '#F1F5F9'; ctx.fill();
+      ctx.strokeStyle = 'rgba(0,0,0,0.4)'; ctx.lineWidth = 0.8; ctx.stroke();
+      ctx.fillStyle = police ? '#1D4ED8' : '#DC2626';          // смуга по кузову
+      ctx.fillRect(-L*0.3, -W/2, L*0.34, W);
+      if (!police) { ctx.fillStyle = '#fff'; ctx.fillRect(-L*0.18, -1.6, L*0.1, 3.2); ctx.fillRect(-L*0.13, -3.4, 3.2, 6.8); } // хрест
+      rrPath(L*0.14, -W/2 + 2, L*0.2, W - 4, 2); ctx.fillStyle = '#1E293B'; ctx.fill();   // лобове
+      rrPath(-L*0.42, -W/2 + 2.5, L*0.1, W - 5, 2); ctx.fillStyle = '#1E293B'; ctx.fill(); // заднє
+      ctx.fillStyle = '#FEF9C3';
+      ctx.fillRect(L/2 - 2.5, -W/2 + 1.2, 2.5, 3); ctx.fillRect(L/2 - 2.5, W/2 - 4.2, 2.5, 3);
+      ctx.fillStyle = '#B91C1C';
+      ctx.fillRect(-L/2, -W/2 + 1.2, 2.5, 3); ctx.fillRect(-L/2, W/2 - 4.2, 2.5, 3);
+      // Мигалки + світіння
+      const lx = L * 0.02;
+      [[-1, flash ? cA : '#374151'], [1, flash ? '#374151' : cB]].forEach(([side, col]) => {
+        if (col !== '#374151') {
+          const g = ctx.createRadialGradient(lx, side * 4, 1, lx, side * 4, 26);
+          g.addColorStop(0, col + 'AA'); g.addColorStop(1, col + '00');
+          ctx.fillStyle = g; ctx.fillRect(lx - 28, side * 4 - 28, 56, 56);
+        }
+        ctx.fillStyle = col;
+        ctx.fillRect(lx - 2, side * 4 - (side < 0 ? 3.5 : 0), 4, 3.5);
+      });
+      ctx.restore();
+    }
+
+    function drawIncidents() {
+      if (!trafficEnabled) return;
+      crashFx.forEach(f => {
+        const u = f.t / f.life;
+        if (f.k === 'smoke') {
+          ctx.globalAlpha = (1 - u) * 0.4;
+          ctx.fillStyle = '#6B7280';
+          ctx.beginPath(); ctx.arc(f.x, f.y, f.r + u * 11, 0, Math.PI * 2); ctx.fill();
+        } else {
+          ctx.globalAlpha = 1 - u;
+          ctx.strokeStyle = '#FDE68A'; ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(f.x, f.y); ctx.lineTo(f.x - f.vx * 0.04, f.y - f.vy * 0.04); ctx.stroke();
+        }
+      });
+      ctx.globalAlpha = 1;
+      const routes = trafficRoutePool();
+      incidents.forEach(inc => inc.vehicles.forEach(v => {
+        if (v.done) return;
+        const route = routes[v.routeIndex];
+        if (route) drawEmergencyVehicle(v, pointAtDistance(getRouteTrace(route), v.distance));
+      }));
+    }
+
     function drawTrafficCars(levelFilter = null) {
       if (!trafficEnabled) return;
       const routes = trafficRoutePool();
@@ -1679,27 +2228,108 @@
         const route = routes[car.routeIndex];
         if (!route) return;
         const p = pointAtDistance(getRouteTrace(route), car.distance);
-        if (levelFilter !== null && (p.level ? 1 : 0) !== levelFilter) return;
+        if (levelFilter !== null && (p.level === -1 ? -1 : (p.level ? 1 : 0)) !== levelFilter) return;
 
         ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.angle);
+        ctx.translate(p.x + (car.cx || 0), p.y + (car.cy || 0));
+        ctx.rotate(p.angle + (car.ca || 0));
+        if (car.fade) ctx.globalAlpha = Math.max(0, 1 - car.fade);
 
-        // Кузов.
-        ctx.fillStyle = '#2563EB';
-        ctx.fillRect(-car.length/2, -car.width/2, car.length, car.width);
+        const L = car.length, W = car.width, col = car.color || '#2563EB';
+        const rr = (x, y, w, h, r) => {
+          ctx.beginPath();
+          ctx.moveTo(x + r, y);
+          ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+          ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r);
+          ctx.closePath();
+        };
 
-        // Лобове скло.
-        ctx.fillStyle = '#93C5FD';
-        ctx.fillRect(car.length*0.1, -car.width/2+1.5, car.length*0.3, car.width-3);
+        // М'яка тінь на асфальті.
+        rr(-L/2 + 1.5, -W/2 + 2.5, L, W, 4);
+        ctx.fillStyle = 'rgba(0,0,0,0.3)';
+        ctx.fill();
 
-        // Поворотники.
-        if (car.turnSignal === 'left' || car.turnSignal === 'right') {
+        // Світло фар (ледь помітний конус).
+        const beam = ctx.createLinearGradient(L/2, 0, L/2 + 42, 0);
+        beam.addColorStop(0, 'rgba(255,246,200,0.22)');
+        beam.addColorStop(1, 'rgba(255,246,200,0)');
+        ctx.fillStyle = beam;
+        ctx.beginPath();
+        ctx.moveTo(L/2 - 2, -W/2 + 2); ctx.lineTo(L/2 + 42, -W/2 - 9);
+        ctx.lineTo(L/2 + 42, W/2 + 9); ctx.lineTo(L/2 - 2, W/2 - 2);
+        ctx.closePath(); ctx.fill();
+
+        // Кузов із заокругленими кутами.
+        rr(-L/2, -W/2, L, W, 4);
+        ctx.fillStyle = col;
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(0,0,0,0.4)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+
+        // Дах (трохи темніший), лобове та заднє скло.
+        rr(-L*0.2, -W/2 + 2, L*0.4, W - 4, 3);
+        ctx.fillStyle = 'rgba(0,0,0,0.18)';
+        ctx.fill();
+        rr(L*0.1, -W/2 + 2, L*0.2, W - 4, 2);
+        ctx.fillStyle = '#1E293B';
+        ctx.fill();
+        ctx.fillStyle = 'rgba(147,197,253,0.55)';
+        ctx.fillRect(L*0.13, -W/2 + 3, L*0.05, W - 6);
+        rr(-L*0.34, -W/2 + 2.5, L*0.12, W - 5, 2);
+        ctx.fillStyle = '#1E293B';
+        ctx.fill();
+
+        // Автобус: бокові вікна й люки на даху.
+        if (car.kind === 'bus') {
+          ctx.fillStyle = '#1E293B';
+          for (let x = -L*0.4; x < L*0.28; x += 7) {
+            ctx.fillRect(x, -W/2 + 0.8, 5, 2.2);
+            ctx.fillRect(x, W/2 - 3, 5, 2.2);
+          }
+          ctx.fillStyle = 'rgba(255,255,255,0.35)';
+          ctx.fillRect(-L*0.3, -3, L*0.14, 6); ctx.fillRect(-L*0.08, -3, L*0.14, 6);
+        }
+
+        // Фари.
+        ctx.fillStyle = '#FEF9C3';
+        ctx.fillRect(L/2 - 2.5, -W/2 + 1.2, 2.5, 3);
+        ctx.fillRect(L/2 - 2.5, W/2 - 4.2, 2.5, 3);
+
+        // Задні ліхтарі; стоп-сигнали яскраві, коли машина гальмує або стоїть.
+        const stopLit = car.braking || car.speed < 2;
+        if (stopLit) { ctx.shadowColor = '#FF2A2A'; ctx.shadowBlur = 7; }
+        ctx.fillStyle = stopLit ? '#FF3B3B' : '#7F1D1D';
+        ctx.fillRect(-L/2, -W/2 + 1.2, 2.5, 3);
+        ctx.fillRect(-L/2, W/2 - 4.2, 2.5, 3);
+        ctx.shadowBlur = 0;
+
+        // Пошкодження після аварії: подряпини, тріснуте скло, аварійка.
+        if (car.crashed) {
+          rr(-L/2, -W/2, L, W, 4);
+          ctx.fillStyle = 'rgba(0,0,0,0.28)'; ctx.fill();
+          ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(L*0.12, -W/2 + 3); ctx.lineTo(L*0.26, 0); ctx.lineTo(L*0.14, W/2 - 3);
+          ctx.moveTo(L*0.26, 0); ctx.lineTo(L*0.3, -W/4);
+          ctx.stroke();
+          if (Math.floor(performance.now() / 420) % 2 === 0) {
+            ctx.fillStyle = '#F59E0B'; ctx.shadowColor = '#F59E0B'; ctx.shadowBlur = 6;
+            [[L/2 - 2.5, -W/2 + 1.8], [L/2 - 2.5, W/2 - 1.8], [-L/2 + 2.5, -W/2 + 1.8], [-L/2 + 2.5, W/2 - 1.8]].forEach(([x, y]) => {
+              ctx.beginPath(); ctx.arc(x, y, 2, 0, Math.PI * 2); ctx.fill();
+            });
+            ctx.shadowBlur = 0;
+          }
+        }
+
+        // Поворотники: блимають спереду й ззаду з потрібного боку.
+        if ((car.turnSignal === 'left' || car.turnSignal === 'right') && Math.floor(performance.now() / 380) % 2 === 0) {
           const side = car.turnSignal === 'left' ? -1 : 1;
           ctx.fillStyle = '#F59E0B';
-          ctx.beginPath();
-          ctx.arc(car.length/2-3, side*(car.width/2-1.5), 2.8, 0, Math.PI*2);
-          ctx.fill();
+          ctx.shadowColor = '#F59E0B'; ctx.shadowBlur = 6;
+          ctx.beginPath(); ctx.arc(L/2 - 2.5, side * (W/2 - 1.8), 2.2, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(-L/2 + 2.5, side * (W/2 - 1.8), 2.2, 0, Math.PI * 2); ctx.fill();
+          ctx.shadowBlur = 0;
         }
 
         ctx.restore();
@@ -1712,6 +2342,8 @@ function render() {
       trafficLastTime = nowTraffic;
       updateTrafficLightsPhase();
       updateTraffic(dtTraffic);
+      updateCrashSystem(dtTraffic);
+      updateTransit(dtTraffic);
 
       ctx.fillStyle = '#111827';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -1750,10 +2382,10 @@ function render() {
         });
       }
 
-      const groundGroups = [], bridgeGroups = [];
+      const groundGroups = [], bridgeGroups = [], tunnelGroups = [];
       allRoadsToDraw.forEach(r => {
         if (!r.points || r.points.length < 2) return;
-        splitRoadByLevel(r).forEach(g => (g.kind === 'ground' ? groundGroups : bridgeGroups).push(g));
+        splitRoadByLevel(r).forEach(g => (g.kind === 'ground' ? groundGroups : (g.kind === 'tunnel' || g.kind === 'tunnelramp') ? tunnelGroups : bridgeGroups).push(g));
       });
 
       // Трамвайні колії діляться на рівні так само, як дороги
@@ -1764,9 +2396,15 @@ function render() {
       });
       // Мостові частини колій отримують власне полотно (зливається з дорожніми мостами)
       bridgeTramGroups.forEach(g => bridgeGroups.push({
-        points: g.points, lanes: 1, laneWidth: (g.type === 'double' ? g.width : 0) + 18,
+        points: g.points, lanes: 1, laneWidth: (g.type === 'double' ? g.width * 0.6 : 0) + 18,
         centerLine: 'none', kind: g.kind, joinStart: g.joinStart, smooth: false
       }));
+
+      // Підземну частину видно лише під час малювання тунелю
+      if (((currentTool === 'draw' || currentTool === 'ai-route') && drawLevel === -1)) {
+        drawTunnelUnder(tunnelGroups);
+        ctx.save(); ctx.globalAlpha = 0.7; drawTrafficCars(-1); ctx.restore(); // машини під землею (привиди)
+      }
 
       // ШАР 1: Гравійне підніжжя
       groundGroups.forEach(road => {
@@ -1826,14 +2464,20 @@ function render() {
       });
 
       // ШАР 4b: Мости (2-й рівень) і з'їзди — над землею
+      drawTunnelRamps(tunnelGroups);     // спуски до тунелю
       drawTramTracks(groundTramGroups);  // рейки на землі — під машинами того ж рівня
       drawParallelConnections('ground'); // наземні лінії та стрілки — під машинами
       drawRoadMarkings('ground');
+      drawBusLanes(0);
+      drawTransitStops();
       drawTrafficCars(0);                // машини на землі — під мостами
+      drawTrams(0);
+      drawTunnelPortals(tunnelGroups);   // портали — початок і кінець тунелю
       drawBridgeGroups(bridgeGroups);
       drawTramTracks(bridgeTramGroups);  // рейки на мостах — над полотном, під машинами моста
       drawParallelConnections('bridge'); // лінії та стрілки на мостах/з'їздах
       drawRoadMarkings('bridge');
+      drawBusLanes(1);
 
       // ШАР 5: Спеціальні паралельні з'єднання та власні кресленні лінії
 
@@ -1870,6 +2514,8 @@ function render() {
 
       // ШАР 10: AI-трафік (машини малюються поверх дороги й розмітки)
       drawTrafficCars(1); // машини на мостах — поверх
+      drawTrams(1);
+      drawIncidents();    // дим, іскри, поліція та швидка
 
       // Предперегляд стрілки при наведенні
       if (currentTool === 'marking' && markingMode === 'arrow') {
@@ -1894,7 +2540,7 @@ function render() {
         activeRoadPoints.forEach((pt) => {
           ctx.beginPath();
           ctx.arc(pt.x, pt.y, 6 / transform.zoom, 0, Math.PI * 2);
-          ctx.fillStyle = pt.level ? '#38BDF8' : '#10B981';
+          ctx.fillStyle = pt.level === -1 ? '#F59E0B' : (pt.level ? '#38BDF8' : '#10B981');
           ctx.fill();
           ctx.strokeStyle = '#FFFFFF';
           ctx.lineWidth = 2 / transform.zoom;
@@ -1933,7 +2579,7 @@ function render() {
       if (currentTool === 'draw') {
         ctx.beginPath();
         ctx.arc(mouseWorldPos.x, mouseWorldPos.y, 8 / transform.zoom, 0, Math.PI * 2);
-        ctx.strokeStyle = drawLevel ? 'rgba(56,189,248,0.95)' : 'rgba(99, 102, 241, 0.8)';
+        ctx.strokeStyle = drawLevel === -1 ? 'rgba(245,158,11,0.95)' : (drawLevel ? 'rgba(56,189,248,0.95)' : 'rgba(99, 102, 241, 0.8)');
         ctx.lineWidth = 1.5 / transform.zoom;
         ctx.stroke();
       }
@@ -1955,10 +2601,14 @@ function render() {
     // мостовими точками — полотно моста; між різними рівнями — з'їзд/в'їзд.
     function splitRoadByLevel(road) {
       const pts = road.points;
-      if (!pts.some(p => p.level === 1)) return [{ ...road, kind: 'ground' }];
+      if (!pts.some(p => p.level === 1 || p.level === -1)) return [{ ...road, kind: 'ground' }];
+      const lvl = p => (p.level === -1 ? -1 : (p.level ? 1 : 0));
       const kindOfSeg = i => {
-        const a = pts[i].level ? 1 : 0, b = pts[i + 1].level ? 1 : 0;
-        return a && b ? 'deck' : (!a && !b ? 'ground' : 'ramp');
+        const a = lvl(pts[i]), b = lvl(pts[i + 1]);
+        if (a === 0 && b === 0) return 'ground';
+        if (a === 1 && b === 1) return 'deck';
+        if (a === -1 && b === -1) return 'tunnel';
+        return (a === -1 || b === -1) ? 'tunnelramp' : 'ramp';
       };
 
       // Густа ламана, де кожна точка знає, якому сегменту належить.
@@ -1991,11 +2641,15 @@ function render() {
       let cur = null;
       for (let k = 0; k < dense.length - 1; k++) {
         const kind = kindOfSeg(dense[k + 1].seg);
-        if (!cur || cur.kind !== kind) { cur = { ...road, kind, smooth: false, points: [dense[k]] }; out.push(cur); }
+        if (!cur || cur.kind !== kind) { cur = { ...road, kind, smooth: false, points: [dense[k]], seg: dense[k + 1].seg }; out.push(cur); }
         cur.points.push(dense[k + 1]);
       }
       // Місце стику двох мостових частин (в'їзд↔міст↔з'їзд) — треба "залити" круглою заглушкою
-      out.forEach((g, i) => { g.joinStart = i > 0 && out[i - 1].kind !== 'ground' && g.kind !== 'ground'; });
+      const fam = k => (k === 'ramp' || k === 'deck') ? 'bridge' : (k === 'ground' ? 'ground' : 'tunnel');
+      out.forEach((g, i) => {
+        g.joinStart = i > 0 && fam(out[i - 1].kind) === fam(g.kind) && fam(g.kind) !== 'ground';
+        if (g.kind === 'tunnelramp') g.tunnelAtEnd = lvl(pts[g.seg + 1]) === -1; // кінець з боку тунелю
+      });
       return out;
     }
 
@@ -2046,24 +2700,110 @@ function render() {
       ctx.restore();
     }
 
+    // --- ТУНЕЛІ ---
+    // Підземна частина: земляний насип + бурштинова пунктирна "прозора" дорога.
+    function drawTunnelUnder(groups) {
+      const gs = groups.filter(g => g.kind === 'tunnel');
+      if (!gs.length) return;
+      ctx.save();
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.setLineDash([]);
+      const paths = gs.map(g => createRoadPath(g));
+      const W = g => g.lanes * g.laneWidth;
+      gs.forEach((g, i) => { ctx.lineWidth = W(g) + 18; ctx.strokeStyle = 'rgba(41,37,36,0.92)'; ctx.stroke(paths[i]); });
+      gs.forEach((g, i) => {
+        ctx.lineWidth = W(g) + 18; ctx.setLineDash([2, 8]); ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.stroke(paths[i]); ctx.setLineDash([]);
+      });
+      gs.forEach((g, i) => {
+        ctx.lineWidth = W(g) + 2; ctx.setLineDash([9, 6]); ctx.strokeStyle = '#f59e0b';
+        ctx.stroke(paths[i]); ctx.setLineDash([]);
+      });
+      gs.forEach((g, i) => { ctx.lineWidth = W(g) - 2; ctx.strokeStyle = 'rgba(15,15,18,0.92)'; ctx.stroke(paths[i]); });
+      gs.forEach((g, i) => {
+        if (g.centerLine && g.centerLine !== 'none') { ctx.globalAlpha = 0.45; drawCenterLine(paths[i], g.centerLine); ctx.globalAlpha = 1; }
+      });
+      ctx.restore();
+    }
+
+    // Спуск до тунелю: кам'яні стінки виїмки, штриховка, поступове затемнення.
+    function drawTunnelRamps(groups) {
+      const gs = groups.filter(g => g.kind === 'tunnelramp');
+      if (!gs.length) return;
+      ctx.save();
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'butt';
+      ctx.setLineDash([]);
+      const paths = gs.map(g => createRoadPath(g));
+      gs.forEach((g, i) => { ctx.lineWidth = g.lanes * g.laneWidth + 8; ctx.strokeStyle = '#64748b'; ctx.stroke(paths[i]); });
+      gs.forEach((g, i) => {
+        const w = g.lanes * g.laneWidth;
+        ctx.lineWidth = w; ctx.strokeStyle = '#232328'; ctx.stroke(paths[i]);
+        ctx.setLineDash([2, 9]); ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke(paths[i]); ctx.setLineDash([]);
+        const pts = g.points, a = pts[0], b = pts[pts.length - 1];
+        const from = g.tunnelAtEnd ? a : b, to = g.tunnelAtEnd ? b : a;
+        const gr = ctx.createLinearGradient(from.x, from.y, to.x, to.y);
+        gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(1, 'rgba(0,0,0,0.75)');
+        ctx.strokeStyle = gr; ctx.stroke(paths[i]);
+      });
+      ctx.restore();
+    }
+
+    // Портал (вхід/вихід): кам'яні стовпи по боках і смугаста перемичка поперек дороги.
+    function drawTunnelPortals(groups) {
+      groups.forEach(g => {
+        if (g.kind !== 'tunnelramp' || g.points.length < 2) return;
+        const pts = g.points, n = pts.length;
+        const p = g.tunnelAtEnd ? pts[n - 1] : pts[0];
+        const q = g.tunnelAtEnd ? pts[n - 2] : pts[1];
+        const ang = g.tunnelAtEnd ? Math.atan2(p.y - q.y, p.x - q.x) : Math.atan2(q.y - p.y, q.x - p.x);
+        const w = g.lanes * g.laneWidth;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(ang);
+        ctx.lineWidth = 1.5; ctx.fillStyle = '#64748b'; ctx.strokeStyle = '#e2e8f0';
+        [[-(w / 2 + 10), 10], [w / 2, 10]].forEach(([y, h]) => {
+          ctx.beginPath(); ctx.rect(-6, y, 12, h); ctx.fill(); ctx.stroke();
+        });
+        ctx.setLineDash([]);
+        ctx.lineWidth = 5; ctx.strokeStyle = '#111827';
+        ctx.beginPath(); ctx.moveTo(-3, -w / 2); ctx.lineTo(-3, w / 2); ctx.stroke();
+        ctx.setLineDash([5, 5]); ctx.strokeStyle = '#fbbf24';
+        ctx.beginPath(); ctx.moveTo(-3, -w / 2); ctx.lineTo(-3, w / 2); ctx.stroke();
+        ctx.restore();
+      });
+    }
+
     const levelBtnPairs = [
       [document.getElementById('levelGroundBtn'), document.getElementById('levelBridgeBtn')],
       [document.getElementById('levelGroundBtn2'), document.getElementById('levelBridgeBtn2')],
       [document.getElementById('levelGroundBtn3'), document.getElementById('levelBridgeBtn3')],
       [document.getElementById('levelGroundBtn4'), document.getElementById('levelBridgeBtn4')]
     ];
+    const levelTunnelBtns = [document.getElementById('levelTunnelBtn'), document.getElementById('levelTunnelBtn2')];
     function setDrawLevel(l) {
-      drawLevel = l ? 1 : 0;
+      drawLevel = l === -1 ? -1 : (l ? 1 : 0);
       levelBtnPairs.forEach(([g, br]) => {
-        g.classList.toggle('bg-indigo-600', !drawLevel);
-        g.classList.toggle('bg-gray-700', !!drawLevel);
-        g.classList.toggle('text-white', !drawLevel);
-        br.classList.toggle('bg-sky-600', !!drawLevel);
-        br.classList.toggle('bg-gray-700', !drawLevel);
-        br.classList.toggle('text-white', !!drawLevel);
+        const isG = drawLevel === 0, isB = drawLevel === 1;
+        g.classList.toggle('bg-indigo-600', isG);
+        g.classList.toggle('bg-gray-700', !isG);
+        g.classList.toggle('text-white', isG);
+        br.classList.toggle('bg-sky-600', isB);
+        br.classList.toggle('bg-gray-700', !isB);
+        br.classList.toggle('text-white', isB);
+      });
+      levelTunnelBtns.forEach(tb => {
+        tb.classList.toggle('bg-amber-600', drawLevel === -1);
+        tb.classList.toggle('bg-gray-700', drawLevel !== -1);
+        tb.classList.toggle('text-white', drawLevel === -1);
       });
       render();
     }
+    levelTunnelBtns.forEach(tb => tb.addEventListener('click', () => setDrawLevel(-1)));
+    window.addEventListener('keydown', e => {
+      if ((currentTool === 'draw' || currentTool === 'ai-route') && ['u', 'U', 'г', 'Г'].includes(e.key) && !e.ctrlKey && !e.metaKey) setDrawLevel(drawLevel === -1 ? 0 : -1);
+    });
     levelBtnPairs.forEach(([g, br]) => {
       g.addEventListener('click', () => setDrawLevel(0));
       br.addEventListener('click', () => setDrawLevel(1));
@@ -2143,7 +2883,7 @@ function render() {
       activeAIRoutePoints.forEach(pt => {
         ctx.beginPath();
         ctx.arc(pt.x, pt.y, 5 / transform.zoom, 0, Math.PI * 2);
-        ctx.fillStyle = pt.level ? '#38BDF8' : '#67e8f9';
+        ctx.fillStyle = pt.level === -1 ? '#F59E0B' : (pt.level ? '#38BDF8' : '#67e8f9');
         ctx.fill();
         ctx.strokeStyle = pt.level ? '#0c4a6e' : '#164e63';
         ctx.lineWidth = 1.5 / transform.zoom;
@@ -2155,24 +2895,26 @@ function render() {
 
     function drawRouteBridgeOverlay(trace) {
       if (!trace || trace.length < 2) return;
-      ctx.save();
-      ctx.setLineDash([]);
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.strokeStyle = '#38bdf8';
-      ctx.globalAlpha = 0.55;
-      ctx.lineWidth = 7 / transform.zoom;
-      ctx.beginPath();
-      let open = false;
-      for (let i = 1; i < trace.length; i++) {
-        const a = trace[i - 1], b = trace[i];
-        if (a.level || b.level) {
-          if (!open) { ctx.moveTo(a.x, a.y); open = true; }
-          ctx.lineTo(b.x, b.y);
-        } else open = false;
-      }
-      ctx.stroke();
-      ctx.restore();
+      [[1, '#38bdf8'], [-1, '#f59e0b']].forEach(([lv, color]) => {
+        ctx.save();
+        ctx.setLineDash([]);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = color;
+        ctx.globalAlpha = 0.55;
+        ctx.lineWidth = 7 / transform.zoom;
+        ctx.beginPath();
+        let open = false;
+        for (let i = 1; i < trace.length; i++) {
+          const a = trace[i - 1], b = trace[i];
+          if (aiSegLevel(a, b) === lv) {
+            if (!open) { ctx.moveTo(a.x, a.y); open = true; }
+            ctx.lineTo(b.x, b.y);
+          } else open = false;
+        }
+        ctx.stroke();
+        ctx.restore();
+      });
     }
 
     function drawSmoothPath(points) {
@@ -2581,7 +3323,7 @@ function render() {
       const isDouble = tram.type === 'double';
       const railWidth = 1;
       const highlightWidth = 0.5;
-      const trackWidth = tram.width;
+      const trackWidth = tram.width * 0.6; // відстань між рейками (зменшено)
       const railColor = tram.isPreview ? '#B8C1CC' : '#8A94A0';
       const highlightColor = tram.isPreview ? 'rgba(255,255,255,0.5)' : 'rgba(226,232,240,0.65)';
 
@@ -2912,6 +3654,7 @@ function render() {
         roads, parallelConnections, roadMarkings, tramTracks,
         aiRoutes: aiRoutes.map(({ _traceCache, ...r }) => r),
         trafficLights,
+        transitStops,
         transform: { ...transform },
         gridSize,
         trafficCount
@@ -2934,6 +3677,8 @@ function render() {
       aiRoutes = data.aiRoutes || [];
       trafficLights = data.trafficLights || [];
       trafficCars = [];
+      incidents = []; crashFx = [];
+      transitStops = data.transitStops || []; trams = [];
       activeRoadPoints = [];
       activeTramPoints = [];
       activeCustomLinePoints = [];
